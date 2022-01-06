@@ -17,6 +17,7 @@ class ProductCategory(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True,
     )
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
@@ -54,6 +55,7 @@ class Product(models.Model):
         verbose_name='кол-во на складе',
         default=0,
     )
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return f'{self.name} ({self.category.name})'
