@@ -12,7 +12,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="dataTable">
                         <thead>
                         <tr>
                             <th>Имя пользователя</th>
@@ -38,9 +38,10 @@
                         </tr>
                         </tfoot>
                         <tbody>
-                        {% for user in objects %}
+                        {% for user in object_list %}
                         <tr {% if not user.is_active %} style="opacity: 0.5" {% endif %}>
-                            <td><a href="{% url 'admin_staff:user_update' user.pk %}" style="color: dodgerblue">{{ user.username }}</a></td>
+                            <td><a href="{% url 'admin_staff:user_update' user.id %}" style="color: dodgerblue">{{
+                                user.username }}</a></td>
                             <td>{{ user.first_name }}</td>
                             <td>{{ user.last_name }}</td>
                             <td>{{ user.email }}</td>
@@ -61,7 +62,7 @@
                             <td>{{ user.last_login }}</td>
                             <td>
                                 <a {% if not user.is_active %} class="invisible" {% endif %}
-                                   href="{% url 'admin_staff:user_delete' pk=user.pk %}">
+                                   href="{% url 'admin_staff:user_delete' pk=user.id %}">
                                     <i class="fa fa-times-circle"></i>
                                 </a>
                             </td>
