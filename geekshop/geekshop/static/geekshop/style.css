@@ -84,18 +84,18 @@ html, body {
     background-image: url(img/search.png);
     position: absolute;
     top: 63px;
-    left: 1176px;
+    left: 1100px;
 }
 
 .basket {
     display: block;
-    width: 23px;
+    /*width: 23px;*/
     height: 23px;
-    background-image: url(img/basket.png);
+    /*background-image: url(img/basket.png);*/
     position: absolute;
     top: 63px;
-    left: 1210px;
-    width: 140px;
+    left: 1150px;
+    width: 150px;
 }
 
 
@@ -603,6 +603,7 @@ html, body {
     padding-right: 98px;
     margin: -384px auto 0;
     clear: both;
+    box-sizing: content-box;
 }
 
 .footer form {
@@ -785,7 +786,11 @@ td:first-child {
 }
 
 .location {
-    padding: 0px 97px;
+    /*padding: 0px 97px;*/
+    display: flex;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .location-1 {
@@ -987,7 +992,7 @@ td:first-child {
 }
 
 .details-products {
-    padding-left: 98px;
+    /*padding-left: 98px;*/
     padding-right: 98px;
     margin-top: 98px;
     height: 651px;
