@@ -1,0 +1,22 @@
+{% extends 'geekshop/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="category_delete">
+    <div class="h1">Уверены, что хотите удалить?</div>
+    {% include 'ordersapp/includes/inc_order_summary.html' %}
+    <div style="padding-top: 10px">
+        <form action="{% url 'ordersapp:order_delete' object.pk %}" method="post">
+            {% csrf_token %}
+            <input class="btn btn-danger" type="submit" value="Удалить">
+        </form>
+    </div>
+    <div style="padding-top: 10px">
+        <button class="btn btn-success" style="width: 88.63px">
+            <a href="{% url 'ordersapp:order_list' %}" style="color:#fff;text-decoration:none;">
+                Отмена
+            </a>
+        </button>
+    </div>
+</div>
+{% endblock %}
