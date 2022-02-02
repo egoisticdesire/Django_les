@@ -4,54 +4,46 @@
 {% block content %}
 <main>
     <div class="container-fluid">
-        <h1 class="mt-4">Категории товаров</h1>
+        <!--        <h1 class="mt-4">Категории товаров</h1>-->
         <div class="card mb-4">
             <div class="card-header">
-                <i class="fas fa-table mr-1"></i>
+                <i class='bx bx-table'></i>
                 Категории
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable">
-                        <thead>
-                        <tr>
-                            <th>Наименование</th>
-                            <th>Товары</th>
-                            <th>Редактировать</th>
-                            <th>Удалить</th>
-                        </tr>
-                        </thead>
-                        <tfoot>
-                        <tr>
-                            <th>Наименование</th>
-                            <th>Товары</th>
-                            <th>Редактировать</th>
-                            <th>Удалить</th>
-                        </tr>
-                        </tfoot>
-                        <tbody>
-                        {% for category in objects %}
-                        <tr {% if not category.is_active %} style="opacity: 0.5;" {% endif %}>
-                            <td>{{ category.name }}</td>
-                            <td><a href="{% url 'admin_staff:products' category.pk %}">Товары</a></td>
-                            <td>
-                                <a href="{% url 'admin_staff:category_update' category.pk %}">Изменить</a>
-                            </td>
-                            <td>
-                                <a {% if not category.is_active %} class="invisible" {% endif %}
-                                   href="{% url 'admin_staff:category_delete' pk=category.pk %}">
-                                    <i class="fa fa-times-circle"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+                <table class="table table-bordered">
+                    <thead class="thead">
+                    <tr>
+                        <th>Наименование</th>
+                        <th>Товары</th>
+                        <th>Редактировать</th>
+                        <th>Удалить</th>
+                    </tr>
+                    </thead>
+
+                    <tbody class="tbody">
+                    {% for category in objects %}
+                    <tr {% if not category.is_active %} style="opacity: 0.5;" {% endif %}>
+                        <td>{{ category.name }}</td>
+                        <td><a href="{% url 'admin_staff:products' category.pk %}" class="a-td">Товары</a></td>
+                        <td>
+                            <a href="{% url 'admin_staff:category_update' category.pk %}" class="a-td">Изменить</a>
+                        </td>
+                        <td>
+                            <a {% if not category.is_active %} class="invisible" {% endif %}
+                               href="{% url 'admin_staff:category_delete' pk=category.pk %}">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
             <div class="card-footer">
                 <a href="{% url 'admin_staff:category_create' %}">
-                    <button class="btn btn-success">Создать категорию</button>
+                    <button class="btn btn-success">
+                        <span class="btn-text">Создать категорию</span></button>
                 </a>
             </div>
         </div>

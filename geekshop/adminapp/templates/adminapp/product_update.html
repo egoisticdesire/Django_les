@@ -5,8 +5,19 @@
 <form class="form-horizontal" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ update_form.as_p }}
+
     <div style="padding-top: 10px">
-        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <button type="submit" class="btn btn-success">
+            <span class="btn-text">Сохранить</span>
+        </button>
     </div>
 </form>
+
+<div style="padding-top: 10px">
+    <a href="{% url 'admin_staff:products' category.id %}">
+        <button type="submit" class="btn btn-back">
+            <span class="btn-text">Назад</span>
+        </button>
+    </a>
+</div>
 {% endblock %}

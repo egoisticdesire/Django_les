@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    "debug_toolbar",
+
     'mainapp',
     'authapp',
     'basketapp',
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
     'ordersapp',
 
     'social_django',
+
 ]
 
 AUTH_USER_MODEL = 'authapp.ShopUser'
@@ -63,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'geekshop.urls'
@@ -182,3 +186,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.load_extra_data',
     'social_core.pipeline.user.user_details',
 )
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]

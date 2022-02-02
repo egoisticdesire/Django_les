@@ -21,6 +21,7 @@ from .views import index, contacts
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('__debug__/', include('debug_toolbar.urls')),
 
     path('', index, name='index'),
     path('contacts/', contacts, name='contacts'),
