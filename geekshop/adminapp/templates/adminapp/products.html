@@ -4,62 +4,53 @@
 {% block content %}
 <main>
     <div class="container-fluid">
-        <h1 class="mt-4">Товары</h1>
+        <!--        <h1 class="mt-4">Товары</h1>-->
         <div class="card mb-4">
             <div class="card-header">
-                <i class="fas fa-table mr-1"></i>
+                <i class='bx bx-table'></i>
                 Товары категории: <strong>{{ category.name|title }}</strong>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable">
-                        <thead>
-                        <tr>
-                            <th>Наименование</th>
-                            <th>Количество</th>
-                            <th>Стоимость</th>
-                            <th>Детали</th>
-                            <th>Редактировать</th>
-                            <th>Удалить</th>
-                        </tr>
-                        </thead>
-                        <tfoot>
-                        <tr>
-                            <th>Наименование</th>
-                            <th>Количество</th>
-                            <th>Стоимость</th>
-                            <th>Детали</th>
-                            <th>Редактировать</th>
-                            <th>Удалить</th>
-                        </tr>
-                        </tfoot>
-                        <tbody>
-                        {% for product in objects %}
-                        <tr {% if not product.is_active %} style="opacity: 0.5;" {% endif %}>
-                            <td>{{ product.name }}</td>
-                            <td>{{ product.quantity }}</td>
-                            <td>{{ product.price }}</td>
-                            <td>
-                                <a href="{% url 'admin_staff:product_read' product.pk %}">Подробнее</a>
-                            </td>
-                            <td>
-                                <a href="{% url 'admin_staff:product_update' product.pk %}">Изменить</a>
-                            </td>
-                            <td>
-                                <a {% if not product.is_active %} class="invisible" {% endif %}
-                                   href="{% url 'admin_staff:product_delete' pk=product.id %}">
-                                    <i class="fa fa-times-circle"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+                <table class="table table-bordered">
+                    <thead class="thead">
+                    <tr>
+                        <th>Наименование</th>
+                        <th>Количество</th>
+                        <th>Стоимость</th>
+                        <th>Детали</th>
+                        <th>Редактировать</th>
+                        <th>Удалить</th>
+                    </tr>
+                    </thead>
+
+                    <tbody class="tbody">
+                    {% for product in objects %}
+                    <tr {% if not product.is_active %} style="opacity: 0.5;" {% endif %}>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.quantity }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>
+                            <a href="{% url 'admin_staff:product_read' product.pk %}" class="a-td">Подробнее</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'admin_staff:product_update' product.pk %}" class="a-td">Изменить</a>
+                        </td>
+                        <td>
+                            <a {% if not product.is_active %} class="invisible" {% endif %}
+                               href="{% url 'admin_staff:product_delete' pk=product.id %}">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
             <div class="card-footer">
                 <a href="{% url 'admin_staff:product_create' category.pk %}">
-                    <button class="btn btn-success">Создать товар</button>
+                    <button class="btn btn-success">
+                        <span class="btn-text">Создать товар</span>
+                    </button>
                 </a>
             </div>
         </div>

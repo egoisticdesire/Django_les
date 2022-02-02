@@ -2,12 +2,22 @@
 {% load static %}
 
 {% block content %}
-<div class="card" style="width: 18rem;">
-    <img src="{{ object.image.url }}" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{ object.name }}</h5>
-        <p class="card-text">{{ object.description }}</p>
-    </div>
-</div>
+<div style="display:inline-block;">
 
+    <div class="card" style="width: 28rem;">
+        <img src="{{ object.image.url }}" class="" alt="..." style="border-radius: 6px 6px 0 0">
+        <div class="card-body">
+            <h5 class="card-text">{{ object.name }}</h5>
+            <p class="card-text">{{ object.description }}</p>
+        </div>
+    </div>
+    <div style="padding-top: 10px">
+        <a href="{% url 'admin_staff:products' product.pk %}">
+            <button type="submit" class="btn btn-back">
+                <span class="btn-text">Назад</span>
+            </button>
+        </a>
+    </div>
+
+</div>
 {% endblock %}

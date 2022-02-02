@@ -1,39 +1,39 @@
-document.addEventListener("DOMContentLoaded", function (event) {
+const body = document.querySelector('body'),
+    sidebar = body.querySelector('.sidebar'),
+    toggle = body.querySelector('.toggle'),
+    searchBtn = body.querySelector('.search-box'),
+    modeSwitch = body.querySelector('.toggle-switch'),
+    modeText = body.querySelector('.mode-text'),
+    modeTableCard = body.querySelector('.card'),
+    modeTableCardF = body.querySelector('.card-footer'),
+    logo = body.querySelector('ion-icon');
 
-    const showNavbar = (toggleId, navId, bodyId, headerId) => {
-        const toggle = document.getElementById(toggleId),
-            nav = document.getElementById(navId),
-            bodypd = document.getElementById(bodyId),
-            headerpd = document.getElementById(headerId)
 
-// Validate that all variables exist
-        if (toggle && nav && bodypd && headerpd) {
-            toggle.addEventListener('click', () => {
-// show navbar
-                nav.classList.toggle('show')
-// change icon
-                toggle.classList.toggle('bx-x')
-// add padding to body
-                bodypd.classList.toggle('body-pd')
-// add padding to header
-                headerpd.classList.toggle('body-pd')
-            })
-        }
+toggle.addEventListener('click', () => {
+    sidebar.classList.toggle('close');
+});
+
+searchBtn.addEventListener('click', () => {
+    sidebar.classList.remove('close');
+});
+
+modeSwitch.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    logo.classList.toggle('dark');
+
+    if (body.classList.contains('dark')) {
+        modeText.innerText = 'Light mode';
+    } else {
+        modeText.innerText = 'Dark mode';
     }
 
-    showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
-
-    /*===== LINK ACTIVE =====*/
-    const linkColor = document.querySelectorAll('.nav_link')
-
-    function colorLink() {
-        if (linkColor) {
-            linkColor.forEach(l => l.classList.remove('active'))
-            this.classList.add('active')
-        }
+    if (logo.classList.contains('dark')) {
+        logo.style.color = '#ccc';
+        modeTableCard.style.border = '1px solid rgba(204, 204, 204, .125)';
+        modeTableCardF.style.borderTop = '1px solid rgba(204, 204, 204, .05)';
+    } else {
+        logo.style.color = '#707070';
+        modeTableCard.style.border = '1px solid rgba(112, 112, 112, .125)';
+        modeTableCardF.style.borderTop = '1px solid rgba(112, 112, 112, .05)';
     }
-
-    linkColor.forEach(l => l.addEventListener('click', colorLink))
-
-// Your code to run since DOM is loaded and ready
 });
