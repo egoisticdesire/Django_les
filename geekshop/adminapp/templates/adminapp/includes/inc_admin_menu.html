@@ -1,0 +1,66 @@
+<nav class="sidebar">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <ion-icon class="dark" name="cog" type='logo'></ion-icon>
+            </span>
+            <div class="text logo-text">
+                <span class="name">Admin</span>
+                <span class="name2">panel</span>
+            </div>
+        </div>
+        <i class='bx bx-chevron-right toggle'></i>
+    </header>
+
+    <div class="menu-bar">
+        <div class="menu">
+
+            <li class="search-box">
+                <i class='bx bx-search icon'></i>
+                <input type="text" placeholder="Search...">
+            </li>
+
+            <ul class="menu-links">
+                <li class="nav-link {% if request.resolver_match.url_name == 'users' %}active{% endif %}">
+                    <a href="{% url 'admin_staff:users' %}">
+                        <i class='bx bxs-user-account icon'></i>
+                        <span class="text nav-text">Пользователи</span>
+                    </a>
+                </li>
+                <li class="nav-link {% if request.resolver_match.url_name == 'categories' %}active{% endif %}">
+                    <a href="{% url 'admin_staff:categories' %}">
+                        <i class='bx bxs-category icon'></i>
+                        <span class="text nav-text">Категории</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bottom-content">
+            <li class="">
+                <a href="{% url 'index' %}">
+                    <i class='bx bxs-home icon'></i>
+                    <span class="text nav-text">Главная</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="{% url 'auth:logout' %}">
+                    <i class='bx bx-log-out icon'></i>
+                    <span class="text nav-text">Выход</span>
+                </a>
+            </li>
+
+            <li class="mode">
+                <div class="sun-moon">
+                    <i class='bx bxs-sun icon sun'></i>
+                    <i class='bx bxs-moon icon moon'></i>
+                </div>
+                <span class="mode-text text">Light mode</span>
+                <div class="toggle-switch">
+                    <span class="switch" id="layoutSwitch" ></span>
+                </div>
+            </li>
+        </div>
+    </div>
+</nav>
