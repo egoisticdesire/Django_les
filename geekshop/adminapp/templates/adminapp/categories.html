@@ -32,7 +32,7 @@
                         <td>
                             <a {% if not category.is_active %} class="invisible" {% endif %}
                                href="{% url 'admin_staff:category_delete' pk=category.pk %}">
-                                <i class="fas fa-trash"></i>
+                                <i class="fas fa-trash" {% if not category.is_active %}style="display: none"{% endif %}></i>
                             </a>
                         </td>
                     </tr>

@@ -38,7 +38,7 @@
                         <td>
                             <a {% if not product.is_active %} class="invisible" {% endif %}
                                href="{% url 'admin_staff:product_delete' pk=product.id %}">
-                                <i class="fas fa-trash"></i>
+                                <i class="fas fa-trash" {% if not product.is_active %}style="display: none"{% endif %}></i>
                             </a>
                         </td>
                     </tr>
