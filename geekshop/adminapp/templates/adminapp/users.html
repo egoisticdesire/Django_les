@@ -52,7 +52,7 @@
                         <td>
                             <a {% if not user.is_active %} class="invisible" {% endif %}
                                href="{% url 'admin_staff:user_delete' pk=user.id %}">
-                                <i class="fas fa-trash"></i>
+                                <i class="fas fa-trash" {% if not user.is_active %}style="display: none"{% endif %}></i>
                             </a>
                         </td>
                     </tr>
